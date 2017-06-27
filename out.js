@@ -118,12 +118,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }, {
       key: "moveFurry",
       value: function moveFurry() {
+        this.hideVisibilityFurry();
         this.showFurry();
+
         if (this.furry.direction === "right") {
           this.furry.x = this.furry.x + 1;
         }
 
         console.log(this.furry);
+      }
+    }, {
+      key: "hideVisibilityFurry",
+      value: function hideVisibilityFurry() {
+        var fur = document.querySelector(".furry");
+        if (fur != null) {
+          fur.classList.remove("furry");
+        }
+        console.log(fur);
       }
     }, {
       key: "startGame",

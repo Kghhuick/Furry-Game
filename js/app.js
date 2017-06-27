@@ -42,12 +42,24 @@ showCoin(){
 }
 
  moveFurry(){
+   this.hideVisibilityFurry()
    this.showFurry()
+
    if(this.furry.direction === "right") {
        this.furry.x = this.furry.x + 1;
    }
 
+
   console.log(this.furry);
+
+}
+
+hideVisibilityFurry(){
+let fur = document.querySelector(".furry");
+if(fur!= null){
+  fur.classList.remove("furry");
+}
+console.log(fur);
 
 }
 
