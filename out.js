@@ -116,10 +116,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.board[this.Index(this.coin.x, this.coin.y)].classList.add('coin');
       }
     }, {
+      key: "moveFurry",
+      value: function moveFurry() {
+        this.showFurry();
+        if (this.furry.direction === "right") {
+          this.furry.x = this.furry.x + 1;
+        }
+
+        console.log(this.furry);
+      }
+    }, {
       key: "startGame",
       value: function startGame() {
+        var self = this;
+
         this.id = setInterval(function () {
-          console.log("dupa");
+          self.moveFurry();
         }, 250);
       }
     }]);
@@ -128,8 +140,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }();
 
   var a = new Game();
-  a.showFurry();
-  a.showCoin();
+
   a.startGame();
 
   console.log("DOM fully loaded and parsed");

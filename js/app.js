@@ -41,20 +41,30 @@ showCoin(){
   this.board[ this.Index(this.coin.x,this.coin.y) ].classList.add('coin');
 }
 
+ moveFurry(){
+   this.showFurry()
+   if(this.furry.direction === "right") {
+       this.furry.x = this.furry.x + 1;
+   }
+
+  console.log(this.furry);
+
+}
+
+
 startGame(){
-this.id=setInterval(function(){
-  console.log("dupa");
+const self =this;
+
+
+this.id=setInterval(function(){ self.moveFurry() }     , 250);
 }
 
-  , 250);
 }
 
-}
 
 
 let a = new Game;
-a.showFurry();
-a.showCoin();
+
 a.startGame();
 
 
