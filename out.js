@@ -115,6 +115,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       value: function showCoin() {
         this.board[this.Index(this.coin.x, this.coin.y)].classList.add('coin');
       }
+    }, {
+      key: "startGame",
+      value: function startGame() {
+        this.id = setInterval(function () {
+          console.log("dupa");
+        }, 250);
+      }
     }]);
 
     return Game;
@@ -123,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var a = new Game();
   a.showFurry();
   a.showCoin();
+  a.startGame();
 
   console.log("DOM fully loaded and parsed");
 });

@@ -41,12 +41,23 @@ showCoin(){
   this.board[ this.Index(this.coin.x,this.coin.y) ].classList.add('coin');
 }
 
+startGame(){
+this.id=setInterval(function(){
+  console.log("dupa");
+}
+
+  , 250);
+}
+
 }
 
 
 let a = new Game;
 a.showFurry();
 a.showCoin();
+a.startGame();
+
+
 
 
 
