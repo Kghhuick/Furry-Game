@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (fur != null) {
           fur.classList.remove("furry");
         }
-        console.log(fur);
       }
     }, {
       key: "startGame",

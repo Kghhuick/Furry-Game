@@ -59,7 +59,7 @@ let fur = document.querySelector(".furry");
 if(fur!= null){
   fur.classList.remove("furry");
 }
-console.log(fur);
+
 
 }
 
