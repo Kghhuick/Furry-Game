@@ -130,11 +130,11 @@ var Game = function () {
   }, {
     key: "gameOver",
     value: function gameOver() {
-      if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry > 9) {
+      if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
         clearInterval(this.id);
         this.hideVisibilityFurry();
         alert("GAME IS OVER");
-        alert("YOUR RESULT" + " " + this.score);
+        alert("YOUR RESULT IS" + " " + this.score);
       }
     }
   }, {
