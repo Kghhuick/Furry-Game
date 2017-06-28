@@ -128,13 +128,23 @@ var Game = function () {
       }
     }
   }, {
+    key: "gameOver",
+    value: function gameOver() {
+      if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry > 9) {
+        clearInterval(this.id);
+        this.hideVisibilityFurry();
+        alert("GAME IS OVER");
+        alert("YOUR RESULT" + " " + this.score);
+      }
+    }
+  }, {
     key: "moveFurry",
     value: function moveFurry() {
 
       this.hideVisibilityFurry();
       this.showFurry();
       this.showCoin();
-
+      this.gameOver();
       if (this.furry.direction === "right") {
         this.furry.x = this.furry.x + 1;
       } else if (this.furry.direction === "left") {
