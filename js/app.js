@@ -28,51 +28,53 @@ class Game {
   }
 
   showFurry() {
-    //console.log(this.furry.x, this.furry.y,this.Index(this.furry.x, this.furry.y),this.board[0]);
+    // console.log(this.furry.x, this.furry.y,this.Index(this.furry.x, this.furry.y),this.board[0]);
     this.board[this.Index(this.furry.x, this.furry.y)].classList.add('furry');
   }
   showCoin() {
     this.board[this.Index(this.coin.x, this.coin.y)].classList.add('coin');
   }
 
-
   checkCoinCollision() {
     if (this.furry.x === this.coin.x && this.furry.y === this.coin.y) {
-          this.score++;
-          document.querySelector("#score div strong").innerHTML = this.score;
-          this.board[this.Index(this.coin.x, this.coin.y)].classList.remove("coin");
-          this.coin = new Coin();
-      }
+      this.score++;
+      document.querySelector("#score div strong").innerHTML = this.score;
+      this.board[this.Index(this.coin.x, this.coin.y)].classList.remove("coin");
+      this.coin = new Coin();
+    }
   }
 
-  gameOver(){
+  gameOver() {
     if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+      // console.log(this.furry.y);
+      // console.log(this.furry.x);
       clearInterval(this.id);
       this.hideVisibilityFurry()
       alert("GAME IS OVER");
-      alert("YOUR RESULT IS"+" "+this.score);
- }
-}
-
+      alert("YOUR RESULT IS" +
+        " " + this.score);
+    }
+  }
 
   moveFurry() {
 
     this.hideVisibilityFurry()
+    this.gameOver()
     this.showFurry()
     this.showCoin()
-    this.gameOver()
+
     if (this.furry.direction === "right") {
       this.furry.x = this.furry.x + 1;
-    }else if(this.furry.direction ==="left"){
-      this.furry.x =this.furry.x - 1;
-    }else if(this.furry.direction === "up"){
-      this.furry.y=this.furry.y -1;
-    } else if(this.furry.direction ==="down"){
-      this.furry.y=this.furry.y + 1;
+    } else if (this.furry.direction === "left") {
+      this.furry.x = this.furry.x - 1;
+    } else if (this.furry.direction === "up") {
+      this.furry.y = this.furry.y - 1;
+    } else if (this.furry.direction === "down") {
+      this.furry.y = this.furry.y + 1;
     }
 
     this.checkCoinCollision()
- }
+  }
 
   hideVisibilityFurry() {
     let fur = document.querySelector(".furry");
@@ -107,14 +109,13 @@ class Game {
       self.moveFurry()
 
     }, 250);
-   document.addEventListener('keydown', function(e) {
-     self.keyboard(e);
-   });
+    document.addEventListener('keydown', function(e) {
+      self.keyboard(e);
+    });
 
   }
 
 }
-
 
 document.addEventListener("DOMContentLoaded", function(event) {
   let a = new Game;

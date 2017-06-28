@@ -109,7 +109,7 @@ var Game = function () {
   }, {
     key: "showFurry",
     value: function showFurry() {
-      //console.log(this.furry.x, this.furry.y,this.Index(this.furry.x, this.furry.y),this.board[0]);
+      // console.log(this.furry.x, this.furry.y,this.Index(this.furry.x, this.furry.y),this.board[0]);
       this.board[this.Index(this.furry.x, this.furry.y)].classList.add('furry');
     }
   }, {
@@ -131,6 +131,8 @@ var Game = function () {
     key: "gameOver",
     value: function gameOver() {
       if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+        // console.log(this.furry.y);
+        // console.log(this.furry.x);
         clearInterval(this.id);
         this.hideVisibilityFurry();
         alert("GAME IS OVER");
@@ -142,9 +144,10 @@ var Game = function () {
     value: function moveFurry() {
 
       this.hideVisibilityFurry();
+      this.gameOver();
       this.showFurry();
       this.showCoin();
-      this.gameOver();
+
       if (this.furry.direction === "right") {
         this.furry.x = this.furry.x + 1;
       } else if (this.furry.direction === "left") {
