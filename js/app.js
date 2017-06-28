@@ -35,7 +35,18 @@ class Game {
     this.board[this.Index(this.coin.x, this.coin.y)].classList.add('coin');
   }
 
+
+  checkCoinCollision() {
+    if (this.furry.x === this.coin.x && this.furry.y === this.coin.y) {
+          this.score++;
+          document.querySelector("#score div strong").innerHTML = this.score;
+          this.board[this.Index(this.coin.x, this.coin.y)].classList.remove("coin");
+          this.coin = new Coin();
+      } 
+  }
+
   moveFurry() {
+
     this.hideVisibilityFurry()
     this.showFurry()
     this.showCoin()
@@ -49,7 +60,9 @@ class Game {
     } else if(this.furry.direction ==="down"){
       this.furry.y=this.furry.y + 1;
     }
-  }   
+
+    this.checkCoinCollision()
+ }
 
   hideVisibilityFurry() {
     let fur = document.querySelector(".furry");

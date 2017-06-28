@@ -118,8 +118,19 @@ var Game = function () {
       this.board[this.Index(this.coin.x, this.coin.y)].classList.add('coin');
     }
   }, {
+    key: "checkCoinCollision",
+    value: function checkCoinCollision() {
+      if (this.furry.x === this.coin.x && this.furry.y === this.coin.y) {
+        this.score++;
+        document.querySelector("#score div strong").innerHTML = this.score;
+        this.board[this.Index(this.coin.x, this.coin.y)].classList.remove("coin");
+        this.coin = new Coin();
+      }
+    }
+  }, {
     key: "moveFurry",
     value: function moveFurry() {
+
       this.hideVisibilityFurry();
       this.showFurry();
       this.showCoin();
@@ -133,6 +144,8 @@ var Game = function () {
       } else if (this.furry.direction === "down") {
         this.furry.y = this.furry.y + 1;
       }
+
+      this.checkCoinCollision();
     }
   }, {
     key: "hideVisibilityFurry",
